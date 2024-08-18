@@ -1,0 +1,8 @@
+flask
+pillow
+diffusers
+transformers
+torch
+accelerate
+opencv-python
+opencv-contrib-python

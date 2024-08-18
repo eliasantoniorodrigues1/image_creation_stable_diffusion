@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stable diffusion App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <img id="logo" src="/static/images/logo.png">
+    <br>
+    <form action="prompt" method="post">
+        <p>What kind of image would you like to generate?</p>
+        <br>
+        <input id="prompt" type="text" name="prompt_input">
+        <br>
+        <input id="generate_btn" type="submit" value="GENERATE" onclick="processing();">
+    </form>
+    <form action="supersample" method="post">
+        {% for i in prompt_images %}
+            <img class="generated" src="{{i}}">
+        {% endfor %}
+        <br>
+        {% for i in btn_range %}
+        <button class="save_btn" name="save_btn" type="submit" value="{{i}}" onclick="saving({{i}});">
+        SAVE HD IMAGE
+        </button>
+        {% endfor %}
+    </form>
+    <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>            
+</body>
+</html>
